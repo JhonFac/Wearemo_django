@@ -1,0 +1,157 @@
+
+
+@authToken = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3NTUyNTYwLCJpYXQiOjE3MTc1NDg5NjAsImp0aSI6IjgyMTVmNjgyNTYxYjRiMWQ4YjY4MmE1MThmMTM2YzhlIiwidXNlcl9pZCI6MX0.yRG57XFhHIGhFVZPawT57qplUX5nMCdmr1QW2JItG9E
+
+### Crear un nuevo Token
+POST http://127.0.0.1:8000/api/token/
+Authorization: {{authToken}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+
+########################################## Crear un nuevo cliente
+POST http://127.0.0.1:8000/api/customers/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "ABC123",
+  "score": "1000.50",
+  "status": 1
+}
+
+### Obtener todos los clientes
+GET http://127.0.0.1:8000/api/customers/
+Authorization: {{authToken}}
+
+### Obtener detalles de un cliente específico
+GET http://127.0.0.1:8000/api/customers/1/
+Authorization: {{authToken}}
+
+### Actualizar un cliente específico
+PUT http://127.0.0.1:8000/api/customers/1/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "DEF456",
+  "score": "800.25",
+  "status": 2
+}
+
+### Eliminar un cliente específico
+DELETE http://127.0.0.1:8000/api/customers/1/
+Authorization: {{authToken}}
+
+
+############################## Crear un nuevo préstamo para un cliente específico
+POST http://127.0.0.1:8000/api/loans/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "Loan2",
+  "amount": "1000.00",
+  "outstanding": "500.00",
+  "customer": 1
+}
+
+### Obtener todos los préstamos
+GET http://127.0.0.1:8000/api/loans/
+Authorization: {{authToken}}
+
+### Obtener detalles de un préstamo específico
+GET http://127.0.0.1:8000/api/loans/1/
+Authorization: {{authToken}}
+
+### Actualizar un préstamo específico
+PUT http://127.0.0.1:8000/api/loans/1/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "Loan1",
+  "amount": "1500.00",
+  "status": 1,
+  "outstanding": "0.00",
+  "customer": 1
+}
+
+### Eliminar un préstamo específico
+DELETE http://127.0.0.1:8000/api/loans/1/
+Authorization: {{authToken}}
+
+
+############################## Crear un nuevo pago para un cliente específico
+POST http://127.0.0.1:8000/api/payments/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "Payment1",
+  "total_amount": "500.00",
+  "customer": 1
+}
+
+### Obtener todos los pagos
+GET http://127.0.0.1:8000/api/payments/
+Authorization: {{authToken}}
+
+### Obtener detalles de un pago específico
+GET http://127.0.0.1:8000/api/payments/1/
+Authorization: {{authToken}}
+
+### Actualizar un pago específico
+PUT http://127.0.0.1:8000/api/payments/1/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "external_id": "Payment2",
+  "total_amount": "1000.00",
+  "status": 2,
+  "customer": "{customer_id}"
+}
+
+### Eliminar un pago específico
+DELETE http://127.0.0.1:8000/api/payments/1/
+Authorization: {{authToken}}
+
+############################## Crear un nuevo detalle de pago para un pago específico
+POST http://127.0.0.1:8000/api/payment-details/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "payment": 1,
+  "loan": 5,
+  "amount": "250.00"
+}
+
+### Obtener todos los detalles de pago
+GET http://127.0.0.1:8000/api/payment-details/
+Authorization: {{authToken}}
+
+### Obtener detalles de un detalle de pago específico
+GET http://127.0.0.1:8000/api/payment-details/1/
+Authorization: {{authToken}}
+
+### Actualizar un detalle de pago específico
+PUT http://127.0.0.1:8000/api/payment-details/1/
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "payment": "{payment_id}",
+  "loan": "{loan_id}",
+  "amount": "300.00"
+}
+
+### Eliminar un detalle de pago específico
+DELETE http://127.0.0.1:8000/api/payment-details/1/
+Authorization: {{authToken}}
