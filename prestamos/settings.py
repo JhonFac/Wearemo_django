@@ -9,9 +9,12 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
 
 from datetime import timedelta
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-+qe#evx45%jma*li67apasp1ik^44^#r_tjyj)3$uea6d@9)57"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = []
 
 
@@ -89,13 +91,14 @@ WSGI_APPLICATION = "prestamos.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mo',
-        'USER': 'mo',
-        'PASSWORD': 'mo',
-        'HOST': 'db',
-        'PORT': '5432',
+        'NAME': os.getenv('PGDATABASE'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -159,16 +162,6 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,
     'JSON_EDITOR': True,
 }
-
-# # Simple jwt
-# SIMPLE_JWT = {
-#     'ALGORITHM': 'HS256',
-#     'AUTH_HEADER_TYPES': ('Bearer',),
-#     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens. AccessToken',),
-#     'TOKEN_TYPE_CLAIM': 'token_type',
-#     'JTI CLAIM': 'jti',
-#     'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models. TokenUser',
-# }
 
 # Configuraciones JWT
 SIMPLE_JWT = {

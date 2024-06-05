@@ -5,6 +5,13 @@ services:
         build: .
         ports:
             - "8000:8000"
+        environment:
+            PGDATABASE: ${PGDATABASE}
+            PGUSER: ${PGUSER}
+            PGPASSWORD: ${PGPASSWORD}
+            DB_HOST: db
+            DB_PORT: 5432
+            DEBUG: False
         volumes:
             - .:/code
         env_file:
@@ -17,9 +24,12 @@ services:
         image: postgres:13
         container_name: postgres_db
         environment:
-            POSTGRES_DB: mo
-            POSTGRES_USER: mo
-            POSTGRES_PASSWORD: mo
+            PGDATABASE: ${PGDATABASE}
+            PGUSER: ${PGUSER}
+            PGPASSWORD: ${PGPASSWORD}
+            DB_HOST: db
+            DB_PORT: 5432
+            DEBUG: False
         ports:
         - "8080:5432"
         volumes:
