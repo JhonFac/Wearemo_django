@@ -6,9 +6,6 @@ services:
         ports:
             - "8000:8000"
         environment:
-            PGDATABASE: ${PGDATABASE}
-            PGUSER: ${PGUSER}
-            PGPASSWORD: ${PGPASSWORD}
             DB_HOST: db
             DB_PORT: 5432
             DEBUG: False
@@ -27,9 +24,6 @@ services:
             PGDATABASE: ${PGDATABASE}
             PGUSER: ${PGUSER}
             PGPASSWORD: ${PGPASSWORD}
-            DB_HOST: db
-            DB_PORT: 5432
-            DEBUG: False
         ports:
         - "8080:5432"
         volumes:
