@@ -7,9 +7,9 @@ Se realizan los servicios dockerizados basados en modelos y requerimientos propu
 * Servicio Crud para  **Pyment**, el cual crea y distribuye los detalles del pago el el servicio **PymentDetails**
 * Servicio Crud para  **PymentDetails**
 
-* **Se crea una imagen de base de datos de Postgress en Docker, la cual el mismo proyecto se conecta para tener la persistencia de datos**
+* **Se crea una imagen de base de datos de Postgress en Docker, la cual el mismo proyecto se conecta en produccion para tener la persistencia de datos** al igual si el contenedor esta arriba se puede conectar desde **Desarrollo**, ejecutando el proyecto en local. 
 
-* Tambien se puede cambiar la coneccion a la base de datos db.sqllite3 el cual contiene los mismos datos
+* Tambien se puede cambiar la conexión a la base de datos db.sqllite3 el cual contiene los mismos datos
 
 ## Technical requirements
 The frameworks were used:
