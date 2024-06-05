@@ -7,8 +7,9 @@ Se realizan los servicios dockerizados basados en modelos y requerimientos propu
 * Servicio Crud para  **Pyment**, el cual crea y distribuye los detalles del pago el el servicio **PymentDetails**
 * Servicio Crud para  **PymentDetails**
 
-* la base de datos esta en db.sqlite3 directamente para conservar la persistencia de los datos 
+* **Se crea una imagen de base de datos de Postgress en Docker, la cual el mismo proyecto se conecta para tener la persistencia de datos**
 
+* Tambien se puede cambiar la coneccion a la base de datos db.sqllite3 el cual contiene los mismos datos
 
 ## Technical requirements
 The frameworks were used:
@@ -18,10 +19,10 @@ The frameworks were used:
 - Docker
 
 ## Build Container and image in Docker 
-docker-compose -f docker-compose.yml build
+docker-compose build
 
 ## Run image in Docker 
-docker-compose -f docker-compose.yml up
+docker-compose up
 
 ## RUN PROJECT ONLY IN PYTHON
 
