@@ -7,6 +7,9 @@ Se realizan los servicios dockerizados basados en modelos y requerimientos propu
 * Servicio Crud para  **Pyment**, el cual crea y distribuye los detalles del pago el el servicio **PymentDetails**
 * Servicio Crud para  **PymentDetails**
 
+* la base de datos esta en db.sqlite3 directamente para conservar la persistencia de los datos 
+
+
 ## Technical requirements
 The frameworks were used:
 
