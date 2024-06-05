@@ -47,3 +47,8 @@ To run Project:
 
 To be able to see the documentation in swagger in the url:
 `http://127.0.0.1:8000/swagger/`
+
+
+## Command to run unit tests
+
+`python manage.py test`
